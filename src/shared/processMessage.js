@@ -15,7 +15,7 @@ async function Process(textUser, number) {
         models.push(model);
     } else {
 
-        var model = whatsappModel.MessageText("Algo salió mal, inténtalo más tarde");
+        var model = whatsappModel.MessageText("Algo salió mal, inténtalo más tarde", number);
         models.push(model);
     }
 

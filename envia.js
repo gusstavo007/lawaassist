@@ -31,3 +31,7 @@ fetch(url, postReq)
         console.log(res)
     })
     .catch(error => console.log(error));
+
+
+//  git config --global user.name "gusstavo007"
+// git config --global user.email "gustavo_149210@gmail.com"
