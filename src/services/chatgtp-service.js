@@ -14,10 +14,11 @@ async function GetMessageChatGPT(text) {
     });
 
 
+    console.log("respuesta GPT");
+    console.log(response.data.choices[0].text);
     if (response.status == 200 && response.data.choices.lenght > 0) {
 
-        console.log("respuesta GPT");
-        console.log(response.data.choices[0].text);
+
         return response.data.choices[0].text;
     }
 
