@@ -4,7 +4,7 @@ const https = require("https");
 
 const botId = '102593046165379';
 const phoneNbr = '51962739933';
-const bearerToken = 'EAADetDkvM9UBAGHlrK7vzL0xDQE8sFikcsfqFRulxusuVofm3VzdqviBkQMy3siKRGFTd0W7SNZBR2LWocjMvm5HURyUVbZB4pZCs4WlziklwzCOI358e9g4mzq4rObDSYfw6eZB2LPTnEyaE3MJ1wPFTQojb5H1RpkUzngPZCZCeV4STqFZAjDiLZADZAx777BTp8JLRswcnFwoKL65dFZAR9BMb4tZA0RWJEZD';
+const bearerToken = 'EAADetDkvM9UBANnFloRtzpEuTM0ph8TdcJQK4i0bBvh9V52Prd6lOxB02BDm731NmTlOzyf14l3aUGLtelEcfTwDpMHdsH8YyJeADIVIlgFPPeJ7AZA82G8nw3FYW8StHXaZAQ30zi2SBki40QXbQyiZATPGKWkSsT74o1eWEm4fZB3n4s0w3TXMopO9JkQqoZBUQDsDk0kDoFahpFGMV9wL9NUmUw2oZD';
 
 
 function SendMessageWhatsApp(data) {
