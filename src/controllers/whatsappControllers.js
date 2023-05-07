@@ -26,13 +26,16 @@ async function ReceivedMessage(req, res) {
         var value = changes["value"];
         var messageObject = value["messages"];
 
-        console.log(messageObject);
+
 
         if (typeof messageObject != "undefined") {
             var messages = messageObject[0];
             var number = messages["from"];
 
             var text = GetTextUser(messages);
+
+
+
 
             if (text != "") {
                 await processMessage.Process(text, number);
