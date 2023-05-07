@@ -6,16 +6,12 @@ async function GetMessageChatGPT(text) {
 
     try {
 
-
-        const { Configuration, OpenAIApi } = require("openai");
         const configuration = new Configuration({
-            apiKey: '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',
+            apiKey: process.env.OPENAI_API_KEY
         });
+
+
         const openai = new OpenAIApi(configuration);
-
-
-        console.log(configuration);
-
         const response = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: text,
@@ -23,13 +19,13 @@ async function GetMessageChatGPT(text) {
             max_tokens: 1000,
         });
 
-
         console.log(response.data.choices[0].text);
 
-
         return response.data.choices[0].text.trim();
-        //res.send(chatResult);
+
+
     } catch (error) {
+        console.error('<---------- GetMessageChatGPT ------->');
         console.error(error);
         return null;
     }
@@ -39,7 +35,4 @@ async function GetMessageChatGPT(text) {
 }
 
 
-module.exports = {
-
-    GetMessageChatGPT
-};
+module.exports = { GetMessageChatGPT };

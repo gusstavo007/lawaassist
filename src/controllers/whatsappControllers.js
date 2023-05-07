@@ -5,17 +5,21 @@ const processMessage = require("../shared/processMessage");
 const VerifyToken = (req, res) => {
 
     try {
-        var accessToken = "RTQWWTVHBDEJHJKIKIKNDS9090DS";
+        var accessToken = process.env.ACCESS_TOKEN;
+
+        res.status(400).send();
+
         var token = req.query["hub.verify_token"];
         var challenge = req.query["hub.challenge"];
 
         if (challenge != null && token != null && token == accessToken) {
 
-            console.log("tocker verificado");
+            console.log("tocken verificado");
             res.send(challenge);
         } else {
             res.status(400).send();
         }
+
 
     } catch (e) {
         res.status(400).send();
@@ -71,7 +75,6 @@ function GetTextUser(messages) {
         myConsole.log("sin mensaje");
     }
 
-    console.log("get text uer: --" + text);
     return text;
 }
 

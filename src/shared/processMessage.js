@@ -4,19 +4,10 @@ const chatgptservice = require("../services/chatgtp-service");
 
 async function Process(textUser, number) {
 
-
-
-
     textUser = textUser.toLowerCase();
     var models = [];
 
-
-
     const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
-
-    console.log("resultChatGPT: " + resultChatGPT);
-
-
     if (resultChatGPT != null) {
         var model = whatsappModel.MessageText(resultChatGPT, number);
 
