@@ -1,6 +1,7 @@
 const fs = require("fs");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 const processMessage = require("../shared/processMessage");
+
 const VerifyToken = (req, res) => {
 
     try {
@@ -9,6 +10,8 @@ const VerifyToken = (req, res) => {
         var challenge = req.query["hub.challenge"];
 
         if (challenge != null && token != null && token == accessToken) {
+
+            console.log("tocker verificado");
             res.send(challenge);
         } else {
             res.status(400).send();
@@ -33,9 +36,6 @@ async function ReceivedMessage(req, res) {
             var number = messages["from"];
 
             var text = GetTextUser(messages);
-
-
-
 
             if (text != "") {
                 await processMessage.Process(text, number);
@@ -70,6 +70,8 @@ function GetTextUser(messages) {
     } else {
         myConsole.log("sin mensaje");
     }
+
+    console.log("get text uer: --" + text);
     return text;
 }
 
