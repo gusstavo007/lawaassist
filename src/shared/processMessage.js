@@ -36,7 +36,7 @@ async function Process(textUser, number) {
 
         models.push(model);
 
-    } else if (textUser.includes("LEY")) {
+    } else if (textUser.includes("LEY") || textUser.includes("ley")) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata la ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
@@ -50,7 +50,7 @@ async function Process(textUser, number) {
 
         models.push(model);
 
-    } else if (textUser.includes("PROYECTO")) {
+    } else if (textUser.includes("PROYECTO") || textUser.includes("proyecto")) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata el proyecto de ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
@@ -64,7 +64,7 @@ async function Process(textUser, number) {
 
         models.push(model);
 
-    } else if (textUser.includes("OTROS")) {
+    } else if (textUser.includes("OTROS") || textUser.includes("otros")) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata : " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
@@ -73,7 +73,7 @@ async function Process(textUser, number) {
 
     } else {
         //No entiende
-        var model = whatsappModel.MessageText("No entiendo lo que dices", number);
+        var model = whatsappModel.MessageText("No entiendo la consulta " + textUser + "", number);
         models.push(model);
     }
 
