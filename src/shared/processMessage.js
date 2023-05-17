@@ -46,7 +46,10 @@ async function Process(textUser, number) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata la ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
-        var model = whatsappModel.MessageText(consultarChatGPT(textUser), number);
+        var model = whatsappModel.MessageText(consultarChatGPT(textUser) + " ", number);
+
+        console.log(model);
+        console.log(models);
         models.push(model);
 
     } else if (textUser.includes("2.")) {
