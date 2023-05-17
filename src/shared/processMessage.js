@@ -7,28 +7,12 @@ async function Process(textUser, number) {
     textUser = textUser.toLowerCase();
     var models = [];
 
-
-    /*
-    const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
-    if (resultChatGPT != null) {
-        var model = whatsappModel.MessageText(resultChatGPT, number);
-
-        models.push(model);
-    } else {
-
-        var model = whatsappModel.MessageText("Algo salió mal, inténtalo más tarde", number);
-        models.push(model);
-    }
-    */
-
-
-
     //#region sin chat gpt
 
 
     if (textUser.includes("hola")) {
         //SAUDAR
-        var model = whatsappModel.MessageText("Hola, un gusto saludarte. 👋", number);
+        var model = whatsappModel.MessageText("Hola, un gusto saludarte. 👋, recueda que la información proporcionada se debe revisar con un profesional de Leyes. 😊", number);
         models.push(model);
         var modelList = whatsappModel.MessageList(number);
         models.push(modelList);
@@ -45,26 +29,46 @@ async function Process(textUser, number) {
         // despedir
         var model = whatsappModel.MessageText("Ve con cuidado. 😊", number);
         models.push(model);
-    } else if (textUser.includes("comprar")) {
-        // comprar
-        var model = whatsappModel.MessageComprar(number);
+    } else if (textUser.includes("1.")) {
+        //  
+
+        var model = whatsappModel.MessageText("por favor indícame el número de ley con el formato LEY ABCY", number);
+
         models.push(model);
 
-    } else if (textUser.includes("vender")) {
-        // vender
-        var model = whatsappModel.MessageText("👉 Regístrate en el siguiente formulario para poder evaluarte: https://form.jotform.com/222507994363665", number);
+    } else if (textUser.includes("LEY")) {
+        //  
+        textUser = "Actua como un experto abogado peruano y dime de qué trata la ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
+
+        var model = consultarChatGPT(textUser);
         models.push(model);
 
-    } else if (textUser.includes("agencia")) {
-        // agencia
-        var model = whatsappModel.MessageText("Aquí tienes nuestra dirección. 😊", number);
-        models.push(model);
-        var modelLocation = whatsappModel.MessageLocation(number);
-        models.push(modelLocation);
+    } else if (textUser.includes("2.")) {
+        //  
 
-    } else if (textUser.includes("contacto")) {
-        // vender
-        var model = whatsappModel.MessageText("📞*Centro de contacto:*\n912345678", number);
+        var model = whatsappModel.MessageText("por favor indícame el proyecto que quieres conocer el formato PROYECTO ABCY", number);
+
+        models.push(model);
+
+    } else if (textUser.includes("PROYECTO")) {
+        //  
+        textUser = "Actua como un experto abogado peruano y dime de qué trata el proyecto de ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
+
+        var model = consultarChatGPT(textUser);
+        models.push(model);
+
+    } else if (textUser.includes("3.")) {
+        //  
+
+        var model = whatsappModel.MessageText("por favor indícame qué te gustaría conocer con el formato: OTROS Me gustaría saber sobre .... ", number);
+
+        models.push(model);
+
+    } else if (textUser.includes("OTROS")) {
+        //  
+        textUser = "Actua como un experto abogado peruano y dime de qué trata : " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
+
+        var model = consultarChatGPT(textUser);
         models.push(model);
 
     } else {
@@ -81,6 +85,19 @@ async function Process(textUser, number) {
     });
 
 
+
+}
+
+
+async function consultarChatGPT(textUser) {
+
+    const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
+    if (resultChatGPT != null) {
+        return whatsappModel.MessageText(resultChatGPT, number);
+    } else {
+        return whatsappModel.MessageText("Algo salió mal, inténtalo más tarde", number);
+        //models.push(model);
+    }
 
 }
 

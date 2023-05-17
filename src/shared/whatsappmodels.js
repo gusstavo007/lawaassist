@@ -1,7 +1,7 @@
-function MessageText(textResponse, number){
+function MessageText(textResponse, number) {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
-        "to": number,    
+        "to": number,
         "text": {
             "preview_url": true,
             "body": textResponse
@@ -11,7 +11,7 @@ function MessageText(textResponse, number){
     return data;
 }
 
-function MessageList(number){
+function MessageList(number) {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "to": number,
@@ -19,43 +19,40 @@ function MessageList(number){
         "interactive": {
             "type": "list",
             "body": {
-                "text": "✅ Tengo estas opciones"
+                "text": "✅ Tengo estas opciones para ti 😊"
             },
             "footer": {
-                "text": "Selecciona una de las opciones para poder atenderte"
+                "text": "Selecciona una de las opciones para poder ayudarte"
             },
             "action": {
                 "button": "Ver opciones",
-                "sections": [
-                    {
-                        "title": "Compra y vende productos",
-                        "rows": [
-                            {
-                                "id": "main-comprar",
-                                "title": "Comprar",
-                                "description": "Compra los mejores productos para tu hogar"
-                            },
-                            {
-                                "id": "main-vender",
-                                "title": "Vender",
-                                "description": "Vende tus productos"
+                "sections": [{
+                        "title": "Ley",
+                        "rows": [{
+                                "id": "main-ley",
+                                "title": "1. LEY",
+                                "description": "Te ayudo con la descripción de la ley"
                             }
+
                         ]
                     },
                     {
-                        "title": "📍Centro de atención",
-                        "rows": [
-                            {
-                                "id": "main-agencia",
-                                "title": "Agencia",
-                                "description": "Puedes visitar nuestra agencia."
-                            },
-                            {
-                                "id": "main-contacto",
-                                "title": "Centro de contacto",
-                                "description": "Te atenderá uno de nuestro agentes."
+                        "title": "Proyectos de Leyes",
+                        "rows": [{
+                                "id": "main-proyecto",
+                                "title": "2. Proyecto de Ley",
+                                "description": "¿Qué proyecto de ley te gustaría conocer?"
                             }
+
                         ]
+                    },
+                    {
+                        "title": "otros",
+                        "rows": [{
+                            "id": "main-otros",
+                            "title": "3. Consultas varias",
+                            "description": "Te ayudo con tu consulta de leyes y derechos"
+                        }]
                     }
                 ]
             }
@@ -63,19 +60,19 @@ function MessageList(number){
     });
     return data;
 }
-function MessageComprar(number){
+
+function MessageComprar(number) {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "to": number,
-        "type": "interactive",  
+        "type": "interactive",
         "interactive": {
             "type": "button",
             "body": {
                 "text": "Selecciona uno de los productos"
             },
             "action": {
-                "buttons": [
-                    {
+                "buttons": [{
                         "type": "reply",
                         "reply": {
                             "id": "option-laptop",
@@ -91,30 +88,30 @@ function MessageComprar(number){
                     }
                 ]
             }
-        }     
+        }
     });
     return data;
 }
 
-function MessageLocation(number){
+function MessageLocation(number) {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "to": number,
         "type": "location",
         "location": {
-        "latitude": "-12.067158831865067",
-        "longitude": "-77.03377940839486",
-        "name": "Estadio Nacional del Perú",
-        "address": "C. José Díaz s/n, Cercado de Lima 15046"
-    }
-        
+            "latitude": "-12.067158831865067",
+            "longitude": "-77.03377940839486",
+            "name": "Estadio Nacional del Perú",
+            "address": "C. José Díaz s/n, Cercado de Lima 15046"
+        }
+
     });
     return data;
 }
 
 module.exports = {
-MessageText,
-MessageList,
-MessageComprar,
-MessageLocation
+    MessageText,
+    MessageList,
+    MessageComprar,
+    MessageLocation
 };
