@@ -4,14 +4,21 @@ const chatgptservice = require("../services/chatgtp-service");
 
 async function Process(textUser, number) {
 
+
+
+
     textUser = textUser.toLowerCase();
     var models = [];
 
     //#region sin chat gpt
 
+    console.log("-----> textUser: " + textUser);
+
 
     if (textUser.includes("hola")) {
         //SAUDAR
+
+
         var model = whatsappModel.MessageText("Hola, un gusto saludarte. 👋, recueda que la información proporcionada se debe revisar con un profesional de Leyes. 😊", number);
         models.push(model);
         var modelList = whatsappModel.MessageList(number);
