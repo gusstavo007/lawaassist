@@ -12,7 +12,6 @@ async function Process(textUser, number) {
 
     //#region sin chat gpt
 
-    console.log("-----> textUser: " + textUser);
 
 
     if (textUser.includes("hola")) {
@@ -47,7 +46,7 @@ async function Process(textUser, number) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata la ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
-        var model = consultarChatGPT(textUser);
+        var model = consultarChatGPT(textUser, number);
         models.push(model);
 
     } else if (textUser.includes("2.")) {
@@ -61,7 +60,7 @@ async function Process(textUser, number) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata el proyecto de ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
-        var model = consultarChatGPT(textUser);
+        var model = consultarChatGPT(textUser, number);
         models.push(model);
 
     } else if (textUser.includes("3.")) {
@@ -75,7 +74,7 @@ async function Process(textUser, number) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata : " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
-        var model = consultarChatGPT(textUser);
+        var model = consultarChatGPT(textUser, number);
         models.push(model);
 
     } else {
@@ -96,7 +95,7 @@ async function Process(textUser, number) {
 }
 
 
-async function consultarChatGPT(textUser) {
+async function consultarChatGPT(textUser, number) {
 
     const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
     if (resultChatGPT != null) {
