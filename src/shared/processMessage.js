@@ -46,7 +46,7 @@ async function Process(textUser, number) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata la ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
-        var model = consultarChatGPT(textUser, number);
+        var model = whatsappModel.MessageText(consultarChatGPT(textUser), number);
         models.push(model);
 
     } else if (textUser.includes("2.")) {
@@ -60,7 +60,7 @@ async function Process(textUser, number) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata el proyecto de ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
-        var model = consultarChatGPT(textUser, number);
+        var model = whatsappModel.MessageText(consultarChatGPT(textUser), number);
         models.push(model);
 
     } else if (textUser.includes("3.")) {
@@ -74,7 +74,7 @@ async function Process(textUser, number) {
         //  
         textUser = "Actua como un experto abogado peruano y dime de qué trata : " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
 
-        var model = consultarChatGPT(textUser, number);
+        var model = whatsappModel.MessageText(consultarChatGPT(textUser), number);
         models.push(model);
 
     } else {
@@ -95,14 +95,13 @@ async function Process(textUser, number) {
 }
 
 
-async function consultarChatGPT(textUser, number) {
+async function consultarChatGPT(textUser) {
 
     const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
     if (resultChatGPT != null) {
-        return whatsappModel.MessageText(resultChatGPT, number);
+        return resultChatGPT;
     } else {
-        return whatsappModel.MessageText("Algo salió mal, inténtalo más tarde", number);
-        //models.push(model);
+        return "Algo salió mal, inténtalo más tarde";
     }
 
 }
