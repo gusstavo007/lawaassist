@@ -16,65 +16,36 @@ async function Process(textUser, number) {
 
     if (textUser.includes("hola")) {
         //SAUDAR
-
-
-        var model = whatsappModel.MessageText("Hola, un gusto saludarte. 👋, recueda que la información proporcionada se debe revisar con un profesional de Leyes. 😊", number);
+        var model = whatsappModel.MessageText("Hola, un gusto saludarte. 👋, recueda que la información proporcionada debe revisar con un profesional en Leyes. 😊", number);
         models.push(model);
-        var modelList = whatsappModel.MessageList(number);
-        models.push(modelList);
+
+
+        var model = whatsappModel.MessageText("Soy un bot que ayudará con conceptos básicos en Derecho, que pueden ser de tu utilidad en el día a día 😎, el formato es QUIERO CONOCER: Ley universitaría", number);
+        models.push(model);
+
+        //var modelList = whatsappModel.MessageList(number);
+        //models.push(modelList);
+
+        var model = whatsappModel.MessageText("Hola, un gusto saludarte. 👋, recueda que la información proporcionada debe revisar con un profesional en Leyes. 😊", number);
+        models.push(model);
+
     } else if (textUser.includes("gracias")) {
         // agradecimiento
         var model = whatsappModel.MessageText("Gracias a ti por escribirme. 😉😎", number);
         models.push(model);
 
-    } else if (textUser.includes("adios") ||
-        textUser.includes("adiós") ||
-        textUser.includes("bye") ||
-        textUser.includes("me voy")
-    ) {
+    } else if (textUser.includes("adios") || textUser.includes("adiós") || textUser.includes("bye") || textUser.includes("me voy")) {
         // despedir
         var model = whatsappModel.MessageText("Ve con cuidado. 😊", number);
         models.push(model);
-    } else if (textUser.includes("1.")) {
+
+    } else if (textUser.includes("QUIERO") || textUser.includes("CONOCER")) {
         //  
 
-        var model = whatsappModel.MessageText("por favor indícame el número de ley con el formato LEY ABCY", number);
-
+        var model = whatsappModel.MessageText("Estoy preparando tu repuesta..", number);
         models.push(model);
 
-    } else if (textUser.includes("LEY") || textUser.includes("ley")) {
-        //  
-        textUser = "Actua como un experto abogado peruano y dime de qué trata la ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
-
-        const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
-        var model = whatsappModel.MessageText(resultChatGPT, number);
-        models.push(model);
-
-    } else if (textUser.includes("2.")) {
-        //  
-
-        var model = whatsappModel.MessageText("por favor indícame el proyecto que quieres conocer el formato PROYECTO ABCY", number);
-
-        models.push(model);
-
-    } else if (textUser.includes("PROYECTO") || textUser.includes("proyecto")) {
-        //  
-        textUser = "Actua como un experto abogado peruano y dime de qué trata el proyecto de ley: " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
-
-        const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
-        var model = whatsappModel.MessageText(resultChatGPT, number);
-        models.push(model);
-
-    } else if (textUser.includes("3.")) {
-        //  
-
-        var model = whatsappModel.MessageText("por favor indícame qué te gustaría conocer con el formato: OTROS Me gustaría saber sobre .... ", number);
-
-        models.push(model);
-
-    } else if (textUser.includes("OTROS") || textUser.includes("otros")) {
-        //  
-        textUser = "Actua como un experto abogado peruano y dime de qué trata : " + textUser + ", solo para Perú y explicalo en menos de 100 palabras";
+        textUser = "Actua como un experto abogado de perú, y resume lo más relevante e importante : " + textUser + ", que la respuesta sea muy clara, precisa y solo para Perú, Explícalo en menos de 80 palabras";
 
         const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
         var model = whatsappModel.MessageText(resultChatGPT, number);

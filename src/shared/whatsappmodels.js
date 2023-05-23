@@ -37,25 +37,8 @@ function MessageList(number) {
                             }
 
                         ]
-                    },
-                    {
-                        "title": "Proyectos de Leyes",
-                        "rows": [{
-                                "id": "main-proyecto",
-                                "title": "2. Proyecto de Ley",
-                                "description": "¿Qué proyecto de ley te gustaría conocer?"
-                            }
-
-                        ]
-                    },
-                    {
-                        "title": "otros",
-                        "rows": [{
-                            "id": "main-otros",
-                            "title": "3. Consultas varias",
-                            "description": "Te ayudo con tu consulta de leyes y derechos"
-                        }]
                     }
+
                 ]
             }
         }
