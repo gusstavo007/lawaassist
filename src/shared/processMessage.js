@@ -26,8 +26,7 @@ async function Process(textUser, number) {
         //var modelList = whatsappModel.MessageList(number);
         //models.push(modelList);
 
-        var model = whatsappModel.MessageText("Hola, un gusto saludarte. 👋, recueda que la información proporcionada debe revisar con un profesional en Leyes. 😊", number);
-        models.push(model);
+
 
     } else if (textUser.includes("gracias")) {
         // agradecimiento
@@ -39,7 +38,7 @@ async function Process(textUser, number) {
         var model = whatsappModel.MessageText("Ve con cuidado. 😊", number);
         models.push(model);
 
-    } else if (textUser.includes("QUIERO") || textUser.includes("CONOCER")) {
+    } else if (textUser.includes("quiero") || textUser.includes("conocer") ||  textUser.includes("Qué")) {
         //  
 
         var model = whatsappModel.MessageText("Estoy preparando tu repuesta..", number);
