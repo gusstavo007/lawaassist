@@ -18,7 +18,7 @@ async function GetMessageChatGPT(text) {
             model: "text-davinci-003",
             prompt: text,
             temperature: 0.7,
-            max_tokens: 1000,
+            max_tokens: 1000
         });
 
 
