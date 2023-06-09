@@ -27,7 +27,8 @@ async function GetMessageChatGPT(text) {
         console.error('<---------- GetMessageChatGPT ------->');
         console.log(response.data);
 
-        return response.data.choices[0].text.trim();
+        return response;
+        //return response.data.choices[0].text.trim();
 
 
     } catch (error) {
