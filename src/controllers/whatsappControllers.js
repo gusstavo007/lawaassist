@@ -12,6 +12,9 @@ const VerifyToken = (req, res) => {
         var token = req.query["hub.verify_token"];
         var challenge = req.query["hub.challenge"];
 
+        console.log("tocken1:" + token);
+        console.log("tocken2:" + accessToken);
+
         if (challenge != null && token != null && token == accessToken) {
 
             console.log("tocken verificado");
