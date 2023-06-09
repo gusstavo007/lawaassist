@@ -50,6 +50,14 @@ async function Process(textUser, number) {
         var model = whatsappModel.MessageText(resultChatGPT, number);
         models.push(model);
 
+    } else if (textUser.includes("aprendas ")) {
+
+        textUser = "quiero que  " + textUser + ", y cada vez que te pregunte por este tema quiero que me respondas este nuevo aprendizaje";
+
+        const resultChatGPT = await chatgptservice.GetMessageChatGPT(textUser);
+        var model = whatsappModel.MessageText(resultChatGPT, number);
+        models.push(model);
+
     } else {
         //No entiende
         var model = whatsappModel.MessageText("No entiendo la consulta " + textUser + "", number);
