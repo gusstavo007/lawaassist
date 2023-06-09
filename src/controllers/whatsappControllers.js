@@ -7,7 +7,7 @@ const VerifyToken = (req, res) => {
     try {
         var accessToken = process.env.ACCESS_TOKEN;
 
-        res.status(400).send();
+        //res.status(400).send();
 
         var token = req.query["hub.verify_token"];
         var challenge = req.query["hub.challenge"];
