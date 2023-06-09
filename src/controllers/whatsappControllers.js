@@ -8,7 +8,7 @@ const VerifyToken = (req, res) => {
         var accessToken = process.env.ACCESS_TOKEN;
 
 
-
+        console.log("token " + accessToken);
         //res.status(400).send();
 
         var token = req.query["hub.verify_token"];
@@ -21,7 +21,7 @@ const VerifyToken = (req, res) => {
         } else {
             res.status(400).send();
 
-            console.log("tocken ERROR");
+            console.log("token ERROR");
         }
 
 
