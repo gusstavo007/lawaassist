@@ -9,7 +9,7 @@ const VerifyToken = (req, res) => {
 
 
 
-        res.status(400).send();
+        //res.status(400).send();
 
         var token = req.query["hub.verify_token"];
         var challenge = req.query["hub.challenge"];
